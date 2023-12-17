@@ -1,4 +1,0 @@
-# config.yml
-title: My Blog
-author: Your Name
-description: This is my personal blog about web development and technology.
