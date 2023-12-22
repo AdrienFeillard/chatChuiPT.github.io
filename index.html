@@ -3,75 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora&display=swap">
+
+    <title>Every Season is Beerable</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            cursor: url('https://github.com/shobashu/ChatChuiPT.github.io/raw/master/beer_cursor.cur'), auto;
         }
-        .header, .footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-        }
-        .nav {
-            background: #444;
-            padding: 0.5em;
-        }
-        .nav a {
-            color: white;
-            margin: 0 1em;
-            text-decoration: none;
-        }
-        .container {
-            padding: 1em;
-        }
-        .post {
-            margin-bottom: 2em;
-        }
-        .post-title {
-            color: #333;
-        }
-        .post-date {
-            color: #666;
-            font-size: 0.9em;
-        }
-        .post-content {
-            margin-top: 0.5em;
-        }
+
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>My Blog</h1>
+        <h1>Every Season is Beerable</h1>
+        <hr class="horizontal-bar">
+        <p class="subtitle">A study about season variability in beer popularity</p>
     </div>
 
-    <div class="nav">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+    <div class="introduction">
+        <p>
+            Imagine being on vacation, near the beach, with a group of friends enjoying the sun diving into the sea.
+            In your hand, you hold a beer to accompany this sunset. What kind of beer is it? There is a high chance 
+            that your answer is: ‘a light blonde refreshing beer obviously!’. Summer makes us crave a lighter blond beer, 
+            while winter is a season for brown beers, high on alcohol to warm us up. But… is it a stereotype? Is this idea
+            verifiable via statistics? That is what we want to explore in our analysis.<br>
+            
+            Many websites exist where people can give their opinion on the beer they tasted. RateBeer and BeerAdvocate
+            are two of the main popular ones. Analyzing the evolution of parameters such as the given grade or the number of ratings 
+            could offer valuable insights into the seasonal trends of various beer styles.
+            Which website do we want to consider? Let’s look at the country distribution of the two websites:
+        </p>
     </div>
+
+    
+    <h2 class="map-title">Distribution of Ratings in the World</h2>
 
     <div class="container">
-        <div class="post">
-            <h2 class="post-title">First Blog Post</h2>
-            <div class="post-date">Posted on January 1, 2023</div>
-            <div class="post-content">
-                <p>This is the content of the first blog post. It's an exciting start to my blogging journey!</p>
-            </div>
+        <div class="iframe-container">
+            <iframe src="html_files/map_ba.html" width="100%" height="400"></iframe>
+            <h3 class="map-title">BeerAdvocate</h3>
         </div>
-
-        <!-- Repeat for more blog posts -->
+        <div class="iframe-container">
+            <iframe src="html_files/map_rb.html" width="100%" height="400"></iframe>
+            <h3 class="map-title">RateBeer</h3>
+        </div>
     </div>
 
-    <div class="footer">
-        <p>Copyright © 2023 My Blog</p>
+    <div class="intro-end">
+        <p>
+            BeerAdvocate seems to be very popular in the US, while the distribution of countries in RateBeer is wider.
+            We should pursue the RateBeer data. Now let’s try to catch seasonal trends! 
+        </p>
     </div>
-    <script src="script.js"></script> <!-- Link to your JavaScript file -->
 
+    <div class="paragraph-1">
+        <h2 class="paragraph-1-title">Which caracteristic display seasonal trends?</h2>
+        <p>
+            RateBeer dataset offers insights on the beer ratings of the website between 2000 and 2016.
+            Among the most rated beer styles on RateBeer, we retrieve 3 beer styles that catched our
+            attention would be interesting to explore:
+            <ul>
+                <li>IPA: the most rated beer style on the website</li>
+                <li>Pilsener: among the 20 most rated beer styles, known to be fresh blond light beers</li>
+                <li>Belgian Strong Ale: among the 20 most rated beer styles, known to be dark strong beers</li>
+            </ul> 
+        </p>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            We have our 3 characters: : “The Famous, the Cool and the Strong”. Based on our stereotype, we would especially
+            expect to see trends in summer for Pilsener and in winter for Belgian Strong Ale.
+            What could show that these beer styles are seasonal or not? 
+
+            The RateBeer dataset notably provides the ratings given by the users. The user provides an overall grade for the tasted beer,
+            but also a grade for the aroma, palate, taste, appearance of the beer, and the mean of all these grades gives the rating.
+            These 6 characteristics can be grouped together and considered as ‘user specific’. We can suppose that a beer receives different
+            ratings depending on when it is consumed during the winter or during the summer:
+            <br>
+            <br>
+
+            <strong>‘User specific characteristics':</strong>
+
+        </p>
+    </div>
+
+    <div class="plot-container">
+        <div class="iframe-plot-container" style="width: 60%;">
+            <iframe src="html_files/ipa_scores_plot.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container" style="width: 60%;">
+            <iframe src="html_files/pilsener_scores_plot.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container" style="width: 60%;">
+            <iframe src="html_files/belgian_strong_ale_scores_plot.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container" style="width: 60%;">
+            <iframe src="html_files/overall_stl_plot_IPA.html" width="100%" height="300"></iframe>
+        </div>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            Unfortunately, the residuals show the same amplitude as the ‘seasonal’ part of the plots, for each of
+            the characteristics and each of the beer styles. Well, the users do not feel a beer differently depending
+            on the season. Should we give up? Not yet.<br><br><br>
+
+            <strong>Normalised number of ratings</strong>
+            <br><br>
+            Indeed, we could think that Pilsener gets <strong>more ratings </strong> during the summer and Belgian Strong Ale during the winter.
+            If we infer that people rate at the same period when they drink the beer, variation in the <strong>number of ratings</strong> could be
+            representative of variation in beer consumption.<br>
+            In order not to be influenced by the global evolution of ratings on the website, let’s consider the normalized number of
+            ratings for our 3 beer styles:
+        </p>
+    </div>
+
+    <div class="plot-container-col">
+        <div class="iframe-plot-container-col" style="width: 60%;">
+            <iframe src="html_files/norm_nbr_ratings_ipa.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container-col" style="width: 60%;">
+            <iframe src="html_files/norm_nbr_ratings_pils.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container-col" style="width: 60%;">
+            <iframe src="html_files/norm_nbr_ratings_bsa.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container-col" style="width: 60%;">
+            <iframe src="html_files/norm_nbr_ratings_bsa_STL.html" width="100%" height="300"></iframe>
+        </div>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            Wow! We nicely see trends! According to our inference that rating means consumptions,
+            Pilsener seems to be more consumed during the summer while Belgian Strong ale is preferred during the winter!
+            We can then question the reason for these particular seasonalities. 
+        </p>
+    </div>
+
+    <div class="paragraph-1">
+        <h2 class="paragraph-1-title">Which caracteristic explains beer seasonality?</h2>
+        <h3 class="paragraph-small-title">Alcohol degree (ABV)</h3>
+        <p>
+            Maybe these different beer styles have different
+            alcohol degrees. The alcohol degree is a quantifiable value, defined as Alcohol By Volume (ABV)
+        </p>
+    </div>
+
+    <div class="plot-container-row" style="margin: 0 15%;">
+        <div class="image-plot-container-row" style="width: 60%;">
+            <iframe src="html_files/ABV_3beerstyle_norm_plot.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="image-plot-container-row" style="width: 60%;">
+            <iframe src="html_files/ABV_3beerstyle_boxplot.html" width="100%" height="300"></iframe>
+        </div>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            Pilsener, with clear trends in summer are the lighter beers, while Belgian Strong Ale, showing peaks in winter,
+            are stronger. IPA’s alcohol degrees are in the middle, consistent with the more spread and less brutal trend.<br>
+            Are lighter beers more drinked in the summer, and inversely for winter beers?
+            Let’s split our whole dataset into two categories: light beers and strong beers, and see if the number of ratings
+            is periodic and thus depends on the season. But wait. What is considered, as a light or strong beer? We should look
+            at the distribution of alcohol degree among our beers to choose:
+
+        </p>
+    </div>
+
+    <div class="plot-container-col">
+        <div class="iframe-plot-container-col" style="width: 60%;">
+            <iframe src="html_files/ABV_allbeers_histo.html" width="100%" height="300"></iframe>
+        </div>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            With this information, we can define create our 2 new characters:
+
+            <ul>
+                <li>Light beers: all the beers whose ABV is strictly inferior to 5</li>
+                <li>Strong beers: all the beers whose ABV is superior to 8</li>
+            </ul> 
+        </p>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            As before, we want to observe the evolution of the normalized number of ratings to see if we have seasonal trends.
+            We also need to assess if there is a statistical difference between the normalized number of ratings in the summer
+            and in the winter for both beer categories: 
+        </p>
+    </div>
+
+    <div class="plot-container-row-2">
+        <div class="iframe-plot-container-row-2">
+            <h3 class="plot-title">Light Beers: Seasonal Trends</h3>
+            <iframe src="html_files/normalized_nb_ratings_stl_plot_light.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container-row-2">
+            <iframe src="html_files/boxplot_light_beers.html" width="100%" height="300"></iframe>
+        </div>
+    </div>
+
+    <div class="plot-container-row-2">
+        <div class="iframe-plot-container-row-2">
+            <h3 class="plot-title">Strong Beers: Seasonal Trends</h3>
+            <iframe src="html_files/norm_nbr_ratings_strong_beers_STL.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container-row-2">
+            <iframe src="html_files/boxplot_strong_beers.html" width="100%" height="300"></iframe>
+        </div>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            As expected, there is a clear tendency for light beers during the summer and strong beers during the winter.
+            Moreover, the difference of normalized number of ratings is statistically significant!<br>
+            However, is it the only characteristic that determines our choice of beer during a season? Imagine.
+            We are in December and we enter a bar to order a beer. We are cold, tired of the semester and want the best beer
+            to feel comfortable. Not sure that the only thing that will influence us for the choice of the beer is the alcohol 
+            degree. For example, we could be more appealed by a brown, dark beer than by a pale one! Or maybe we will favor a 
+            bitter beer compared to a sweet mild one!
+        </p>
+    </div>
+
+    <div class="paragraph-1">
+        <h3 class="paragraph-small-title">Color (SRM) and Bitterness (IBU)</h3>
+        <p>
+            Well, let’s see if beers with different colors or bitterness are drunk at different seasons: <br>
+            - The most common value used (in the US at least) to measure beer’s color is the Standard Reference Method,
+            or SRM scale for short. Globally, a low SRM value corresponds to a pale beer, while a high SRM value corresponds
+            to dark beers.<br>
+            - To measure bitterness, the International Bitterness Unit (IBU) is widely accepted as the standard. Mild beers typically 
+            have a low IBU, while, conversely, bitter beers tend to have a higher IBU.<br><br>
+
+            Unfortunately, these characteristics are not given by the website.
+
+            We chose to take an alternative method: we gave to chatGPT the name of our beer styles, and asked it if it could give us 
+            a range for the SRM and IBU. It gave us a table with ranges for both values and each beer style. We asked it to compute 
+            the mean of the range it gave us to get a single value. At the end, we have tables with estimated values for SRM and IBU.
+
+            As before, for each characteristics we can split our data into two parts:
+            <ul>
+                <li>Pale beers vs Dark beers</li>
+                <li>Mild beers vs Bitter beers</li>
+            </ul> 
+        </p>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            We also need to see the distribution to choose how to split our data. 
+        </p>
+    </div>
+
+    <div class="plot-container-row" style="margin: 0 15%;">
+        <div class="image-plot-container-row" style="width: 60%;">
+            <iframe src="html_files/SRM_allbeers_histo.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="image-plot-container-row" style="width: 60%;">
+            <iframe src="html_files/IBU_allbeers_histo.html" width="100%" height="300"></iframe>
+        </div>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            Ok so based on these distributions, we will choose as follows:
+    
+            <ul>
+                <li>Pale Beers: SRM &lt;= 10</li>
+                <li>Dark Beers: SRM &gt;= 25</li>
+                <li>Mild Beers: IBU &lt; 30</li>
+                <li>Bitter Beers: IBU &gt; 30</li>
+            </ul> 
+        </p>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            Let’s see if we can catch seasonal trends:
+        </p>
+    </div>
+
+    <div class="plot-container-row-2">
+        <div class="iframe-plot-container-row-2">
+            <h3 class="plot-title">Pale Beers: Seasonal Trends</h3>
+            <iframe src="html_files/norm_nbr_ratings_pale_beers_STL.html" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container-row-2">
+            <h3 class="plot-title">Pale Beers: Normalized Number of Ratings</h3>
+            <iframe src="html_files/boxplot_pale_beers.html" height="300"></iframe>
+        </div>
+    </div>
+
+
+
+    <div class="plot-container-row-2">
+        <div class="iframe-plot-container-row-2">
+            <h3 class="plot-title">Dark Beers: Seasonal Trends</h3>
+            <iframe src="html_files/norm_nbr_ratings_dark_beers_STL.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container-row-2">
+            <iframe src="html_files/boxplot_dark_beers.html" width="100%" height="300"></iframe>
+        </div>
+    </div>
+
+    <div class="plot-container-row-2">
+        <div class="iframe-plot-container-row-2">
+            <h3 class="plot-title">Mild Beers: Seasonal Trends</h3>
+            <iframe src="html_files/norm_nbr_ratings_mild_beers_STL.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container-row-2">
+            <iframe src="html_files/boxplot_mild_beers.html" width="100%" height="300"></iframe>
+        </div>
+    </div>
+
+    <div class="plot-container-row-2">
+        <div class="iframe-plot-container-row-2">
+            <h3 class="plot-title">Bitter Beers: Seasonal Trends</h3>
+            <iframe src="html_files/norm_nbr_ratings_bitter_beers_STL.html" width="100%" height="300"></iframe>
+        </div>
+        <div class="iframe-plot-container-row-2">
+            <iframe src="html_files/boxplot_bitter_beers.html" width="100%" height="300"></iframe>
+        </div>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            Very interesting! If we merge all our information, we can say that during the summer,
+            the most rated (and possibly consumed) beers are light, pale, and mild, while during the winter,
+            the preferred beers are strong, dark and bitter.<br><br>
+
+            However, if we think about it a minute, and imagine
+            again the beer menu. Aren’t the pale beers often lighter than dark ones? Aren’t strong beers generally
+            more bitter than light ones?        
+         </p>
+    </div>
+
+    <div class="paragraph-1">
+        <h2 class="paragraph-1-title">Is their a correlation between ABV, SRM and IBU?</h2>
+        <p>
+            Statistically, the 3 characteristics ABV, SRM, and IBU could simply be correlated:
+        </p>
+    </div>
+
+    <div class="plot-container">
+        <div class="iframe-plot-container" style="width: 60%;">
+            <iframe src="heatmap_plot_with_values1.html" width="100%" height="300px"></iframe>
+        </div>
+        <div class="iframe-plot-container" style="width: 60%;">
+            <iframe src="heatmap_plot.html" width="100%" height="300px"></iframe>
+        </div>
+    </div>
+
+    <!-- Best Beers -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+    <div class="paragraph-1">
+        <h2 class="paragraph-1-title">Can we estimate a seasonality metrics per beer style ?</h2>
+        <p>
+            For each beer style, we calculate the seasonality metrics, defined by:<br>
+            $$\frac{std(\text{seasonality}) - std(\text{residuals})}{\text{normalized number of ratings}}$$
+        </p>
+    </div>
+
+    <div class="plot-container">
+        <div class="iframe-plot-container" style="width: 60%;">
+            <iframe src="html_files/seasonal_beers.html" width="100%" height="300px"></iframe>
+        </div>
+        <div class="iframe-plot-container" style="width: 60%;">
+            <iframe src="html_files/seasonal_beers_box_plot.html" width="100%" height="300px"></iframe>
+        </div>
+    </div>
+
+    <div class="paragraph-1">
+        <p>
+            We end up we a list of beer styles that are the most seasonal for the winter or for the summer.
+            The results are quite coherent with our prior analysis.
+            We can see the <strong>OkotoberFest</strong> is the most seasonal beer of summer and the <strong>Imperial Pils / Strong Pale Ale</strong> the most seasonal beer style of winter.
+        </p>
+
+        <p>
+            We can clearly see a distinction in the abv of the summer oriented beers compared with the winter oriented beers style.
+            For the winter beer style, the average abv is around <strong>7.4%</strong> whereas the for the summer beer style it is around <strong>5.5%</strong>.
+        </p>
+    </div>
+</body>
+</html>
+
+
+    <!-- Does it follow the hemisphere -->
+    <div class="section" id="best-beers">
+        <h2> Best Beers</h2>
+        <!-- Content for Best Beers -->
+        <p> Bla bla hemisphère nord et sud c'est tout inversé
+        Se dire que dans notre analyse, on a fait sur le monde entier, dont plus de 95% sont hémisphères nord. Mais vu que les saisons sont inversées dans l'hémisphère sud, on split en 3 régions. On choisit notamment Océanie pour hémisphère sud car c’est là où il y’a le plus de ratings (y’en a pas bcp en amérique du sud ou en afrique subsaharienne) 
+
+        On prend les 2 beer styles qu’on a identifié comme les plus saisonnaux en été et hiver dans la partie juste avant, et on étudie leur saisonnalité pour nos 3 régions:
+        </p>
+    </div>
+
+    </div>
+
+    <!-- Conclusion -->
+    <div class="section" id="best-beers">
+        <h2> Conclusion</h2>
+        <!-- Conclusion -->
+        <p>In heaven there is no beer, that's why we drink it here...</p>
+        <video width="560" height="315" controls>
+          <source src="https://github.com/shobashu/ChatChuiPT.github.io/raw/master/In%20heaven%20there%20is%20no%20beer.mp4">
+          Your browser does not support the video tag.
+        </video>
+
+    </div>
+    <!-- Your content goes here -->
 </body>
 </html>

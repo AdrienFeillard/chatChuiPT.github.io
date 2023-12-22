@@ -1,0 +1,198 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lora', serif;
+    cursor: url('https://github.com/shobashu/ChatChuiPT.github.io/blob/master/beer_cursor.cur'), auto;
+}
+
+.header {
+    text-align: center;
+    background-image: url('images/website_image.jpg');
+    background-size: cover;       /* Cover the entire container, maintaining aspect ratio */
+    background-position: center 20%;  /* Display more of the bottom part of the image */
+    color: white;
+    padding: 120px 50px;
+    height: 300px
+}
+
+h1 {
+    font-size: 4em; /* Adjust font size as needed */
+    margin: 20px 0;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 2px black; /* Add a black shadow around the text */
+
+}
+
+.horizontal-bar {
+    border: 1px solid white;
+    width: 50%;
+    margin: 10px auto;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    text-shadow: 2px 2px 2px black; /* Add a black shadow around the text */
+
+}
+
+.introduction {
+    max-width: 800px;
+    margin: 50px auto 100px;
+    text-align: justify;
+    color: black;
+    padding: 0 20px; 
+}
+
+p {
+    font-size: 1.1em; /* Adjust font size as needed */
+    line-height: 1.6; /* Adjust line height as needed */
+}
+
+/* Add this CSS to your existing styles.css file or in the head of your HTML document */
+.container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; /* Add space between the two maps */
+    padding: 20px; /* Add padding around the container for better spacing */
+}
+
+.iframe-container {
+    flex: 1;
+    margin: 10px;
+    padding: 0;
+}
+
+iframe {
+    width: 100%;
+    height: 400px;
+    border: none; /* Remove iframe border */
+}
+
+.map-title {
+    text-align: center;
+    margin-top: 10px; /* Adjust the margin top for the titles */
+    font-size: 0.8em; /* Adjust the font size for the titles */
+    font-weight: normal; /* Remove bold style from titles */
+}
+
+/* Add the following styles to adjust the main title */
+h2.map-title {
+    text-align: center;
+    margin-top: 0px; /* Adjust the margin top for the main title */
+    font-size: 1em; /* Adjust the font size for the main title */
+}
+
+.intro-end {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: justify;
+    color: black;
+    padding: 0 20px;
+}
+
+/* Your existing styles here */
+
+.paragraph-1 {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+    color: black;
+    padding: 0 20px;
+}
+
+.paragraph-1-title {
+    font-size: 1.8em; /* Adjust the font size as needed */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: disc; /* Change the bullet style to a solid dot if desired */
+    font-family: inherit; /* Inherit font family from the parent element (paragraph) */
+    font-size: 16px; /* Set the font size to match the paragraph text */
+  }
+  
+
+li {
+    margin-bottom: 0.5rem; /* Add spacing between list items */
+    font-family: inherit; /* Inherit font family from the parent element (paragraph) */
+    font-size: 16px; /* Set the font size to match the paragraph text */
+  }
+
+.plot-container {
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    margin-top: 20px; /* Adjust the margin as needed for spacing */
+}
+
+.iframe-plot-container {
+    margin-bottom: 20px; /* Adjust the margin as needed between plots */
+}
+
+.plot-container-col {
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    margin-top: 2px; /* Adjust the margin as needed for spacing */
+}
+
+.iframe-plot-container-col {
+    margin-bottom: 2px; /* Adjust the margin as needed between plots */
+}
+
+.plot-container-row {
+    display: flex;
+    flex-direction: row; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    margin-top: 2px; /* Adjust the margin as needed for spacing */
+}
+
+.iframe-plot-container-row {
+    margin-bottom: 2px; /* Adjust the margin as needed between plots */
+}
+
+.paragraph-small-title {
+    font-size: 1.2em; /* Adjust the font size as needed */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.plot-title {
+    text-align: center;
+    margin-top: 10px; /* Adjust the margin top for the titles */
+    font-size: 1em; /* Adjust the font size for the titles */
+    font-weight: normal; /* Remove bold style from titles */
+}
+
+
+.plot-container-row-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start of the container */
+    margin-top: 2px;
+    flex-wrap: nowrap; /* Ensure that the iframes stay in a single row */
+}
+
+.iframe-plot-container-row-2 {
+    flex: 1; /* Each container will take up an equal amount of space */
+    margin-bottom: 0;
+    padding-right: 0; /* Assuming you want no padding on the right */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Remove any right margin from the first iframe container */
+.iframe-plot-container-row-2:first-child {
+    margin-right: 0; /* Ensure there's no space after the first iframe */
+}
+
+/* Remove any left margin from the second iframe container */
+.iframe-plot-container-row-2:nth-child(2) {
+    margin-left: 0; /* Ensure there's no space before the second iframe */
+}
+
+
